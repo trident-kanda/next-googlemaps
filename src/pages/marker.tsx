@@ -2,8 +2,8 @@ import Head from "next/head";
 import Layout from "../components/Layout";
 import GoogleMapReact from "google-map-react";
 import Nav from "../components/Nav";
+console.log(process.env.GOOGLE_KEY);
 const latlng = { lat: 35.170915, lng: 136.881537 };
-
 const handleApiLoaded = ({ map, maps }: any) => {
   new maps.Marker({
     map,
@@ -20,7 +20,7 @@ export default function Home() {
           defaultZoom={15}
           defaultCenter={latlng}
           yesIWantToUseGoogleMapApiInternals={true}
-          bootstrapURLKeys={{ key: "AIzaSyAqeDiz2m3DdYEsAqg_r8VZuhf1i-FZWeM" }}
+          bootstrapURLKeys={{ key: process.env.GOOGLE_KEY as string }}
           onGoogleApiLoaded={handleApiLoaded}
         ></GoogleMapReact>
       </div>

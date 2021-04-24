@@ -20,7 +20,7 @@ export default function Home() {
           defaultZoom={15}
           defaultCenter={latlng}
           yesIWantToUseGoogleMapApiInternals={true}
-          bootstrapURLKeys={{ key: "AIzaSyAqeDiz2m3DdYEsAqg_r8VZuhf1i-FZWeM" }}
+          bootstrapURLKeys={{ key: process.env.GOOGLE_KEY as string }}
           onGoogleApiLoaded={handleApiLoaded}
         ></GoogleMapReact>
       </div>

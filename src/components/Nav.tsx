@@ -21,9 +21,9 @@ const Nav = () => {
       <Link href="/geocoder">
         <a className="flex-1 py-4 text-center font-medium text-xl text-gray-500 hover:bg-gray-50 hover:text-black rounded-r-lg">
           {pathname === "/geocoder" && (
-            <span className=" text-green-500">現在地</span>
+            <span className=" text-green-500">検索</span>
           )}
-          {pathname !== "/geocoder" && <span>現在地</span>}
+          {pathname !== "/geocoder" && <span>検索</span>}
         </a>
       </Link>
     </nav>

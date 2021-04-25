@@ -35,22 +35,25 @@ export default function Marker() {
         position: position,
       })
     );
+    map.panTo(position);
   };
   return (
     <Layout>
       <Nav />
       <div className="mt-4" />
-      <div className="bg-white p-6 h-96 sm:rounded-lg shadow ">
-        <GoogleMapReact
-          defaultZoom={15}
-          defaultCenter={defaultLatLng}
-          yesIWantToUseGoogleMapApiInternals={true}
-          bootstrapURLKeys={{ key: process.env.GOOGLE_KEY as string }}
-          onGoogleApiLoaded={({ map, maps }) => {
-            handleApiLoaded(map, maps);
-          }}
-          onClick={mapClick}
-        ></GoogleMapReact>
+      <div className="bg-white p-6  sm:rounded-lg shadow ">
+        <div className="h-96">
+          <GoogleMapReact
+            defaultZoom={15}
+            defaultCenter={defaultLatLng}
+            yesIWantToUseGoogleMapApiInternals={true}
+            bootstrapURLKeys={{ key: process.env.GOOGLE_KEY as string }}
+            onGoogleApiLoaded={({ map, maps }) => {
+              handleApiLoaded(map, maps);
+            }}
+            onClick={mapClick}
+          ></GoogleMapReact>
+        </div>
       </div>
       <div className="mt-4" />
       <div className="p-6 bg-white shadow sm:rounded-lg">

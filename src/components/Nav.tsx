@@ -18,12 +18,12 @@ const Nav = () => {
           {pathname !== "/marker" && <span>クリック</span>}
         </a>
       </Link>
-      <Link href="/geocoder">
+      <Link href="/search">
         <a className="flex-1 py-4 text-center font-medium text-xl text-gray-500 hover:bg-gray-50 hover:text-black rounded-r-lg">
-          {pathname === "/geocoder" && (
+          {pathname === "/search" && (
             <span className=" text-green-500">検索</span>
           )}
-          {pathname !== "/geocoder" && <span>検索</span>}
+          {pathname !== "/search" && <span>検索</span>}
         </a>
       </Link>
     </nav>

@@ -2,7 +2,7 @@ import Head from "next/head";
 import Layout from "../components/Layout";
 import GoogleMapReact from "google-map-react";
 import Nav from "../components/Nav";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import SearchBox from "../components/SearchBox";
 
 export default function Home() {

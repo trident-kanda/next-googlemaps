@@ -1,10 +1,8 @@
-import { MapOptions, Maps } from "google-map-react";
 import { useEffect, useRef } from "react";
 
 const SearchBox = ({ maps, map, inputMarker, marker }: any) => {
   const input = useRef(null);
   const searchBox: any = useRef(null);
-  const placesChanged = () => {};
   useEffect(() => {
     searchBox.current = new maps.places.SearchBox(input.current);
     map.controls[maps.ControlPosition.TOP_LEFT].push(input.current);

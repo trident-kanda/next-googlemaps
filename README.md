@@ -7,4 +7,4 @@
 
 ## 改善予定
 
-search ページに遷移した時初回のみ map.replace が取得できずエラーになる。
+search ページに遷移した時初回のみ maps.replace が取得できずエラーになる。

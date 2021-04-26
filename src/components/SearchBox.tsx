@@ -1,12 +1,23 @@
 import { MapOptions, Maps } from "google-map-react";
 import { useEffect } from "react";
 
-const SearchBox = ({ maps, map }: any) => {
+const SearchBox = ({ maps, map, inputMarker }: any) => {
   useEffect(() => {
-    const boxset = async () => {
-      const input: any = document.getElementById("input");
-      const searchBox = await maps.places.SearchBox(input);
-    };
+    const input: any = document.getElementById("input");
+    const searchBox = new maps.places.SearchBox(input);
+    searchBox.addListener("places_changed", () => {
+      const places = searchBox.getPlaces();
+      if (places.length === 0) {
+        return;
+      }
+      console.log(places[0]);
+      // inputMarker(
+      //   new maps.Marker({
+      //     map,
+      //     position: defaultLatLng,
+      //   })
+      // )
+    });
   }, []);
   return (
     <input

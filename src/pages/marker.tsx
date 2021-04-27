@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import GoogleMapReact from "google-map-react";
 import Nav from "../components/Nav";
 import { useState } from "react";
+import GoogleMap from "../components/GoogleMap";
 
 export default function Marker() {
   const defaultLatLng = { lat: 35.170915, lng: 136.881537 };
@@ -10,7 +11,7 @@ export default function Marker() {
   const [maps, setMaps] = useState<any>(null);
   const [marker, setMarker] = useState<any>(null);
   const [latLng, setLatLng] = useState<any>(defaultLatLng);
-  const handleApiLoaded = (map: any, maps: any) => {
+  const handleApiLoaded = ({ map, maps }: any) => {
     setMap(map);
     setMaps(maps);
     setMarker(
@@ -42,18 +43,12 @@ export default function Marker() {
       <Nav />
       <div className="mt-4" />
       <div className="bg-white p-6  sm:rounded-lg shadow ">
-        <div className="h-96">
-          <GoogleMapReact
-            defaultZoom={15}
-            defaultCenter={defaultLatLng}
-            yesIWantToUseGoogleMapApiInternals={true}
-            bootstrapURLKeys={{ key: process.env.GOOGLE_KEY as string }}
-            onGoogleApiLoaded={({ map, maps }) => {
-              handleApiLoaded(map, maps);
-            }}
-            onClick={mapClick}
-          ></GoogleMapReact>
-        </div>
+        <GoogleMap
+          defaultZoom={15}
+          defaultCenter={defaultLatLng}
+          onGoogleApiLoaded={handleApiLoaded}
+          onClick={mapClick}
+        ></GoogleMap>
       </div>
       <div className="mt-4" />
       <div className="p-6 bg-white shadow sm:rounded-lg">

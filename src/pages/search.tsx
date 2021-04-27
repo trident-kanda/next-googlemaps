@@ -4,6 +4,7 @@ import GoogleMapReact from "google-map-react";
 import Nav from "../components/Nav";
 import { useCallback, useState } from "react";
 import SearchBox from "../components/SearchBox";
+import GoogleMap from "../components/GoogleMap";
 
 export default function Home() {
   const [map, setMap] = useState<any>(null);
@@ -35,26 +36,19 @@ export default function Home() {
       <Nav />
       <div className="mt-4" />
       <div className="bg-white p-6  sm:rounded-lg shadow ">
-        <div className="h-96 ">
-          {apiReady && (
-            <SearchBox
-              maps={maps}
-              map={map}
-              inputMarker={inputMarker}
-              marker={marker}
-            />
-          )}
-          <GoogleMapReact
-            defaultZoom={15}
-            defaultCenter={defaultLatLng}
-            yesIWantToUseGoogleMapApiInternals={true}
-            bootstrapURLKeys={{
-              key: process.env.GOOGLE_KEY as string,
-              libraries: "places",
-            }}
-            onGoogleApiLoaded={handleApiLoaded}
-          ></GoogleMapReact>
-        </div>
+        {apiReady && (
+          <SearchBox
+            maps={maps}
+            map={map}
+            inputMarker={inputMarker}
+            marker={marker}
+          />
+        )}
+        <GoogleMap
+          defaultZoom={15}
+          defaultCenter={defaultLatLng}
+          onGoogleApiLoaded={handleApiLoaded}
+        ></GoogleMap>
       </div>
     </Layout>
   );

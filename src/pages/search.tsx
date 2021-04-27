@@ -26,6 +26,7 @@ export default function Home() {
     );
     setMap(map);
     setMaps(maps);
+    console.log(maps);
     changeApi(true);
   };
 
@@ -49,8 +50,7 @@ export default function Home() {
             yesIWantToUseGoogleMapApiInternals={true}
             bootstrapURLKeys={{
               key: process.env.GOOGLE_KEY as string,
-              libraries: ["places"],
-              language: "ja",
+              libraries: "places",
             }}
             onGoogleApiLoaded={handleApiLoaded}
           ></GoogleMapReact>
